@@ -8,7 +8,7 @@ const args = minimist(process.argv.slice(2));
 
 const app = express();
 
-const port = args.port || 3000;
+const port = args.port || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -19,28 +19,34 @@ app.get('/app/', (req, res) => {
 });
 
 // roll default dice
-// roll random dice
 
 app.get('/app/roll/', (req, res) => {
-	res.send(parseInt(req.body.sides) || 6, parseInt(req.body.dice) || 2, parseInt(req.body.rolls) || 1);
+        console.log(roll(6, 2, 1));
+	res.send(roll(6, 2, 1));
+});
+
+// roll random dice
+
+app.post('/app/roll/', (req, res) => {
+	res.send(roll(parseInt(req.body.sides), parseInt(req.body.dice), parseInt(req.body.rolls)));
 });
 
 // roll dice with sides parameter
 
 app.get('/app/roll/:sides/', (req, res) => {
-	res.send(parseInt(req.params.sides), 2, 1);
+	res.send(roll(parseInt(req.params.sides), 2, 1));
 });
 
 // roll dice with sides and dice parameters
 
 app.get('/app/roll/:sides/:dice/', (req, res) => {
-	res.send(parseInt(req.params.sides), parseInt(req.params.dice), 1);
+	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), 1));
 });
 
 // roll dice with sides, dice, rolls parameters
 
 app.get('/app/roll/:sides/:dice/:rolls/', (req, res) => {
-	res.send(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls));
+	res.send(roll(parseInt(req.params.sides), parseInt(req.params.dice), parseInt(req.params.rolls)));
 });
 
 // call nonexistent endpoint
