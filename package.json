@@ -1,0 +1,25 @@
+{
+  "name": "a04-krenfan",
+  "version": "1.0.0",
+  "description": "stand up a web api",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node server.js --port=5555"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-fall/a04-krenfan.git"
+  },
+  "author": "krenfan",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-fall/a04-krenfan/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-fall/a04-krenfan#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mathjs": "^11.4.0",
+    "minimist": "^1.2.7"
+  }
+}
